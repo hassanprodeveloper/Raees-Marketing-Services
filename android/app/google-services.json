@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "227578108707",
+    "project_id": "raees-marketing-services-803df",
+    "storage_bucket": "raees-marketing-services-803df.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:227578108707:android:bdc94a9dffde570f66ca96",
+        "android_client_info": {
+          "package_name": "com.rms"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "227578108707-psijvsqdl3a5etvgfsm0tsh75n4jgir6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rms",
+            "certificate_hash": "4196f4bfadc290bf58056acb129619436452f6ff"
+          }
+        },
+        {
+          "client_id": "227578108707-h4onqvtu3b878lbvefc4ped87iekfsik.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBUJYsQ9I1Ic8XMd1Ew4VueW2-Ip2Zm_YY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "227578108707-h4onqvtu3b878lbvefc4ped87iekfsik.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
