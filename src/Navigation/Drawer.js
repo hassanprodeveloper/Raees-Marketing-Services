@@ -15,7 +15,7 @@ export default function AppDrawer() {
         <Drawer.Screen name="Dashbord" component={Screens.Dashbord} />
         <Drawer.Screen name="PostJob" component={Screens.PostJob} />
         <Drawer.Screen name="ListScreen" component={Screens.ListScreen} />
-        <Drawer.Screen name="Home" component={Screens.Home} />
+        <Drawer.Screen name="BottomTab" component={Screens.BottomTab} />
         <Drawer.Screen name="About" component={Screens.About} />
         {/* <Drawer.Screen name="HeaderComponent" component={Header} /> */}
       </Drawer.Navigator>

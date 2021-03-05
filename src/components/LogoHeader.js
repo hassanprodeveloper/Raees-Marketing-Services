@@ -22,14 +22,14 @@ export default LogoHeader;
 
 const styles = StyleSheet.create({
     logo: {
-        height: 160,
-        width: 160,
+        height: 150,
+        width:  150,
         resizeMode: 'cover',
       },
       text: {
-        fontFamily: 'Archino',
-        fontSize: 18,
-        marginTop: -40,
+        // fontFamily: 'Archino',
+        fontSize: 17,
+        marginTop: -30,
         marginBottom: 30,
         color: '#051d5f',
       },

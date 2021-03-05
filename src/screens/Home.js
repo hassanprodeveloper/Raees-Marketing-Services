@@ -6,7 +6,7 @@ import {
   Text, 
   Button} from 'react-native';
 
-const Home = ({navigation}) => {
+const MyHome = ({navigation}) => {
   return (
     <View style={styles.appContainer}>
       <View>
@@ -30,4 +30,4 @@ const styles = StyleSheet.create({
     margin:10
   },
 });
-export default Home;
+export default MyHome;

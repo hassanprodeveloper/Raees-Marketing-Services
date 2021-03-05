@@ -1,11 +1,12 @@
 import SplashScreen from '../screens/SplashScreen';
 import Dashbord from '../screens/Dashboard';
-import Home from '../screens/Home';
+import MyHome from '../screens/Home';
 import About from '../screens/About';
 import LoginScreen from '../screens/LoginScreen';
 import AdminLogin from '../screens/AdminLogin';
 import SignupScreen from '../screens/SignupScreen';
 import Drawer from './Drawer';
+import BottomTab from './BottomTab/BottomTab'
 import PostJob from '../screens/PostJob'
 import ListScreen from '../screens/ListScreen';
 // 
@@ -15,7 +16,7 @@ import AdminDrawer from './AdminDrawer';
 export {
   SplashScreen,
   Dashbord,
-  Home,
+  MyHome,
   About,
   SignupScreen,
   LoginScreen,
@@ -23,6 +24,7 @@ export {
   Drawer,
   ListScreen,
   PostJob,
+  BottomTab,
 //   
 AdminDrawer,
 AdminDashbord,

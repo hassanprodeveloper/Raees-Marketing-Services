@@ -12,21 +12,42 @@ import {
   TouchableRipple,
 } from 'react-native-paper';
 import {DrawerContentScrollView, DrawerItem} from '@react-navigation/drawer';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import Icon from 'react-native-vector-icons/Ionicons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import {connect} from 'react-redux';
-import UserCard from '../components/UserCard'
+import UserCard from '../components/UserCard';
 import Signature from './Signature';
 
-
-
 const DrawerContent = (props) => {
-  const userData = props.userData.userData;
-  const user = props.userData.user;
-  const [inDarkTheme, setIsDarkTheme] = React.useState(false);
-  const toggleTheme = () => {
-    setIsDarkTheme(!inDarkTheme);
-  };
+  // const userData = props.userData.userData;
+  // const user = props.userData.user;
+  // const [inDarkTheme, setIsDarkTheme] = React.useState(false);
+  // const toggleTheme = () => {
+  //   setIsDarkTheme(!inDarkTheme);
+  // };
+
+  const drawerItems = [
+    {
+      label: 'Present Stock',
+      iconType: 'add',
+      onpress: () => props.navigation.navigate('Dashbord'),
+    },
+    {
+      label: 'Issue Stock',
+      iconType: 'add',
+      onpress: () => console.log('hellow item '),
+    },
+    {
+      label: 'Sync Data',
+      iconType: 'arrow-up',
+      onpress: () => console.log('hellow item 2'),
+    },
+    {
+      label: 'Tab',
+      // iconType: 'arrow-up',
+      onpress: () => props.navigation.navigate('BottomTab'),
+    },
+  ];
 
   return (
     <View style={{flex: 1}}>
@@ -41,12 +62,12 @@ const DrawerContent = (props) => {
                 alignItems: 'center',
                 marginTop: 15,
               }}>
-              {/* <UserCard /> */}
-              <Image
+              <UserCard />
+              {/* <Image
                 style={styles.logo}
                 // source={require('../Assets/logo1.png')}
                 source={require('../Assets/logo1.png')}
-              />
+              /> */}
             </View>
             {/* ------ name and details */}
             {/* <View style={{marginLeft: 15}}>
@@ -57,14 +78,26 @@ const DrawerContent = (props) => {
             {/* !-- */}
           </View>
           <Drawer.Section style={styles.drawerSection}>
-            {/*------------------------------student section */}
-            {user === 'student' ? (
-              <>
-                <DrawerItem
+            {drawerItems.map((item, i) => {
+              return (
+                <>
+                  <DrawerItem
+                    style={styles.drawerItem}
+                    icon={({color, size}) => (
+                      <Icon name={item.iconType} color={color} size={size} />
+                    )}
+                    label={item.label}
+                    onPress={item.onpress}
+                  />
+                </>
+              );
+            })}
+
+            {/* <DrawerItem
                   icon={({color, size}) => (
-                    <Icon name="home-outline" color={color} size={size} />
+                    <Icon name="ios-add-sharp" color={color} size={size} />
                   )}
-                  label="Dashbord"
+                  label="issue stock"
                   onPress={() => props.navigation.navigate('Dashbord')}
                 />
                 <DrawerItem
@@ -81,53 +114,8 @@ const DrawerContent = (props) => {
                   )}
                   label="Jobs"
                   onPress={() => props.navigation.navigate('DrawerHome')}
-                />
-                {/* !!!!-------------- student section end */}
-              </>
-            ) : user === 'company' ? (
-              <>
-                {/* -------------- Company section */}
-                <DrawerItem
-                  icon={({color, size}) => (
-                    <Icon name="home-outline" color={color} size={size} />
-                  )}
-                  label="Dashbord"
-                  onPress={() => props.navigation.navigate('Dashbord')}
-                />
-                <DrawerItem
-                  icon={({color, size}) => (
-                    <AntDesign name="user" color={color} size={size} />
-                  )}
-                  label="Students"
-                  onPress={() => props.navigation.navigate('Companies')}
-                />
-                <DrawerItem
-                  icon={({color, size}) => (
-                    <AntDesign name="plus" color={color} size={size} />
-                  )}
-                  label="Post Jobs"
-                  onPress={() => props.navigation.navigate('Companies')}
-                />
-
-                <DrawerItem
-                  icon={({color, size}) => (
-                    <AntDesign name="profile" color={color} size={size} />
-                  )}
-                  label="CV"
-                  onPress={() => props.navigation.navigate('DrawerHome')}
-                />
-              </>
-            ) : (
-              <>
-                <DrawerItem
-                  icon={({color, size}) => (
-                    <Icon name="alpha-j" color={color} size={size} />
-                  )}
-                  label="Jobs"
-                  onPress={() => props.navigation.navigate('LoginScreen')}
-                />
-              </>
-            )}
+                /> */}
+            {/* !!!!-------------- student section end */}
           </Drawer.Section>
           {/* -------------- company section end */}
 
@@ -196,6 +184,9 @@ const styles = StyleSheet.create({
     marginTop: 20,
     flexDirection: 'row',
     alignItems: 'center',
+  },
+  drawerItem:{ 
+    textTransform: 'capitalize',
   },
   section: {
     marginRight: 15,

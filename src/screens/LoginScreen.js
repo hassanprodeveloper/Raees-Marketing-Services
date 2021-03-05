@@ -67,6 +67,15 @@ const LoginScreen = ({navigation, setUserData, setUser}) => {
   const loginHandler = () => {
     setdisable(true);
     getFirestoreData();
+
+    db.collection('auth')
+    .get()
+    .then((snapshots) => {
+      console.log('firestore collection snapshots', snapshots);
+    })
+    .catch((error) => {
+      console.assert('firestore collection error', error);
+    });
   };
   return (
     <>

@@ -9,7 +9,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import {connect} from 'react-redux';
-import {Divider, } from 'react-native-paper'
+import {Divider} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/Ionicons';
 // local imports
 import PostJob from './PostJob';
@@ -18,15 +18,12 @@ import SurfaceCard from '../components/SurfaceCard';
 import AddButton from '../components/AddButton';
 import Header from '../components/Header';
 import UserCard from '../components/UserCard';
+import SkuCard from '../components/SkuCard';
 // import {updateUserData} from '../redux/action';
 import {db} from '../Config/firestore';
-import {
-  studentsHandler,
-  companiesHandler,
-  jobsHandler,
-  createdjobs,
-} from '../Admin/NavigationFunctions';
-//
+// import BottomTab from '../Navigation/BottomTab/BottomTab';
+
+
 const Dashbord = ({navigation, userState}) => {
   // const user = userState.user;
   // const userData = userState.userData;
@@ -59,93 +56,13 @@ const Dashbord = ({navigation, userState}) => {
         title="dashboard"
         iconType="ios-menu-sharp"
         onPress={() => navigation.openDrawer()}
-      /> 
-      <UserCard />
-      <View style={styles.topContainer}>
-        {/* user menu drawer */}
-        {/* <View style={styles.drawerMenuCont}>
-          <Icon
-            style={styles.drawericon}
-            onPress={() => navigation.openDrawer()}
-            name="ios-menu-sharp"
-            color="#0f0f0f"
-            size={26}
-          />
-        </View> */}
+      />
+      <SkuCard />
+      <View style={styles.bottomContainer}>
 
-        {/* <View style={styles.homeTitleTextCont}> */}
-          {/* <Image source={require('../Assets/logo.png')} style={styles.logo} />
-          <Text style={styles.text}>Saylani Roll: WM6370</Text> */}
-        {/* </View> */}
-        
+        {/* <SurfaceCard title="issue Stock" /> */}
       </View>
-      {/* <View style={styles.bottomContainer}>
-        {user === 'student' ? (
-          <> */}
-      {/*  ---------for student------------- */}
-      {/* <View style={styles.surfaceRow}>
-              <SurfaceCard
-                title="Companies"
-                onPress={() => companiesHandler(adminUsers, navigation)}
-              />
-              <SurfaceCard
-                title="Jobs"
-                onPress={() => jobsHandler(adminUsers, navigation)}
-              />
-            </View> */}
-      {/*  !!!end---------for student------------- */}
-      {/* </> */}
-      {/* ) : user === 'company' ? ( */}
-      {/* <> */}
-      {/* ---------for Companies------------- */}
-      {/* <View style={styles.surfaceRow}> */}
-      {/* <SurfaceCard
-                title="Students"
-                onPress={() => studentsHandler(adminUsers, navigation)}
-              /> */}
-      {/* <SurfaceCard
-                title="CVs"
-                onPress={() => studentsHandler(adminUsers, navigation)}
-              />
-            </View> */}
-
-      {/* <View style={styles.surfaceRow}>
-              <SurfaceCard
-                title="created jobs"
-                onPress={() => createdjobs(userData, navigation)}
-              /> */}
-      {/* <SurfaceCard
-                title="CVs"
-                onPress={() => studentsHandler(adminUsers, navigation)}
-              /> */}
-      {/* </View> */}
-      {/* !!!end---------for Companies------------- */}
-      {/* </> */}
-      {/* ) : ( */}
-      {/* <> */}
-      {/* --------- if not login which is not true------------- */}
-      {/* <View style={styles.surfaceRow}>
-              <Text>You are not login</Text>
-            </View> */}
-      {/* </> */}
-      {/* )} */}
-      {/* </View> */}
-
-      {/* {user === 'company' ? (
-        <>
-          <View style={styles.addjobBtnCont}> */}
-      {/* <AddButton onPress={() => navigation.navigate('PostJob')} /> */}
-      {/* <MyActionSheet
-          myactionSheetRef="addJob"
-          // extendScreen={() => navigation.navigate('SearchDonorScreen')}
-          actionSheetHeading="Post job"
-          actionComponent={<PostJob />}
-          button={<Icon name='md-add-circle' size={60} color="#0f0f0f" />}
-        /> */}
-      {/* </View> */}
-      {/* </> */}
-      {/* ) : null} */}
-      {/*  */}
+      
     </View>
   );
 };
