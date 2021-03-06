@@ -11,11 +11,14 @@ import {
 import Icon from 'react-native-vector-icons/Ionicons';
 import {windowWidth, windowHeight} from '../Assets/Dimensions';
 
-const SkuCard = ({name, box, id, issue}) => {
+const PresentStockCard = ({name, box, issue, id}) => {
   // const issue = true
   return (
     <>
       <View style={styles.SkuCard}>
+        {/* <View style={{ marginLeft:-10,}}>
+          <Text style={styles.rateText}>{id}</Text>
+        </View> */}
         <View style={styles.userIdCont}>
           <Text style={styles.userNameText}>{name}</Text>
           <Text style={styles.rateText}>Per Box Rs: 108/-</Text>
@@ -27,24 +30,35 @@ const SkuCard = ({name, box, id, issue}) => {
             <Text style={styles.userNameText}>{box}</Text>
             <Text style={styles.rateText}>Boxs</Text>
           </View>
-          <TextInput style={{...styles.textInput, display: issue? 'flex' : 'none'}} maxLength={3} keyboardType='number-pad' />
+          {/* <TextInput style={{...styles.textInput, display: issue? 'flex' : 'none'}} maxLength={3} keyboardType='number-pad' /> */}
         </View>
 
-        {/* <View style={styles.stockCont}>
-          <Text style={styles.userNameText}>3</Text>
-          <Text style={styles.rateText}>Boxs</Text>
-        </View> */}
+        <View style={styles.stockMainCont}>
+          <View style={styles.stockCont}>
+            <Text style={styles.userNameText}>{box}</Text>
+            <Text style={styles.rateText}>Boxs</Text>
+          </View>
+          {/* <TextInput style={{...styles.textInput, display: issue? 'flex' : 'none'}} maxLength={3} keyboardType='number-pad' /> */}
+        </View>
+
+        <View style={styles.stockMainCont}>
+          <View style={styles.stockCont}>
+            <Text style={styles.userNameText}>{box}</Text>
+            <Text style={styles.rateText}>Total</Text>
+          </View>
+        </View>
       </View>
     </>
   );
 };
 
-export default SkuCard;
+export default PresentStockCard;
 
 const styles = StyleSheet.create({
   SkuCard: {
     // backgroundColor: 'aqua',
-    width: windowWidth,
+    // width: windowWidth,
+    width: '100%',
     flexDirection: 'row',
     paddingHorizontal: 20,
     borderRadius: 10,
@@ -52,7 +66,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
   },
   userIdCont: {
-    flex: 2,
+    flex: 4,
     paddingHorizontal: 12,
     paddingVertical: 12,
   },

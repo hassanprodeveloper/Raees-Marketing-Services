@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
-import Profile from '../components/Profile';
+import Profile from '../components/IssueStock';
 import Test from '../components/Test';
 
 const Stack = createStackNavigator();

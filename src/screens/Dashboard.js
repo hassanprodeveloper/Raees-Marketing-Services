@@ -7,6 +7,7 @@ import {
   TextInput,
   Image,
   TouchableOpacity,
+  ScrollView,
 } from 'react-native';
 import {connect} from 'react-redux';
 import {Divider} from 'react-native-paper';
@@ -21,8 +22,9 @@ import UserCard from '../components/UserCard';
 import SkuCard from '../components/SkuCard';
 // import {updateUserData} from '../redux/action';
 import {db} from '../Config/firestore';
-// import BottomTab from '../Navigation/BottomTab/BottomTab';
-
+import BottomTab from '../Navigation/BottomTab';
+import { SKULIST} from '../redux/List/SkuList'
+import { StockList} from '../redux/List/PresentStockList'
 
 const Dashbord = ({navigation, userState}) => {
   // const user = userState.user;
@@ -45,9 +47,10 @@ const Dashbord = ({navigation, userState}) => {
   //     .catch((error) => console.alert(error));
   // };
   //
-  // useEffect(() => {
-  //   getFirestoreData();
-  // }, []);
+  useEffect(() => {
+    navigation.navigate('BottomTab');
+    // getFirestoreData();
+  }, []);
 
   return (
     <View style={styles.homeContainer}>
@@ -57,12 +60,14 @@ const Dashbord = ({navigation, userState}) => {
         iconType="ios-menu-sharp"
         onPress={() => navigation.openDrawer()}
       />
-      <SkuCard />
       <View style={styles.bottomContainer}>
-
-        {/* <SurfaceCard title="issue Stock" /> */}
+      <ScrollView>
+        {/* {
+          StockList.map((item, i)=> <SkuCard name={item.name} box={item.box} />
+            )
+        } */}
+        </ScrollView>
       </View>
-      
     </View>
   );
 };

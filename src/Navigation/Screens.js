@@ -6,7 +6,7 @@ import LoginScreen from '../screens/LoginScreen';
 import AdminLogin from '../screens/AdminLogin';
 import SignupScreen from '../screens/SignupScreen';
 import Drawer from './Drawer';
-import BottomTab from './BottomTab/BottomTab'
+import BottomTab from './BottomTab'
 import PostJob from '../screens/PostJob'
 import ListScreen from '../screens/ListScreen';
 // 

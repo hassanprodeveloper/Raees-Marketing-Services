@@ -35,7 +35,7 @@ const DrawerContent = (props) => {
     {
       label: 'Issue Stock',
       iconType: 'add',
-      onpress: () => console.log('hellow item '),
+      onpress: () => props.navigation.navigate('IssueStock'),
     },
     {
       label: 'Sync Data',

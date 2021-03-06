@@ -1,9 +1,10 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Create from '../components/Create';
-import Profile from '../components/Profile';
+import Profile from '../components/IssueStock';
 import TabBar from '../components/TabBar';
-import * as Screens from '../../Screens'
+import * as TabScreens from '../components/TabScreens'
+import * as Screens from '../../../Navigation/Screens'
 import ProfileNavigator from './ProfileNavigator';
 
 const Tab = createBottomTabNavigator();
@@ -11,13 +12,13 @@ const TabNavigator = () => {
   return (
     <Tab.Navigator tabBar={props => <TabBar {...props} />}>
       <Tab.Screen
-        name='Home'
-        component={Screens.Dashbord}
+        name='Stock'
+        component={TabScreens.PresentStock}
         initialParams={{ icon: 'home' }}
       />
       <Tab.Screen
-        name='Create'
-        component={Screens.PostJob}
+        name='Issue'
+        component={TabScreens.IssueStock}
         initialParams={{ icon: 'plus' }}
       />
       <Tab.Screen

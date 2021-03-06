@@ -7,6 +7,7 @@ const AnimatedScrollView = ({ children, ...restProps }) => {
   const { setShowTabBar } = useTabBar();
   return (
     <ScrollView
+    showsVerticalScrollIndicator={false}
       {...restProps}
       onScroll={({ nativeEvent }) => {
         const newOffset = nativeEvent.contentOffset.y;
