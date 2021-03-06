@@ -6,18 +6,25 @@ import {TextLoader, DotsLoader} from 'react-native-indicator';
 import {CurrentUser} from '../Config/AppAuth';
 import {connect} from 'react-redux';
 import {updateUser1} from '../redux/action';
+import {MMKV} from 'react-native-mmkv';
+
 const SplashScreen = ({navigation}) => {
+  const isLogin = MMKV.getBoolean('isLogin');
   const [isLoginCondition, setisLoginCondition] = useState(null);
-  useEffect(() => {
-    setisLoginCondition(CurrentUser());
-  });
+  // useEffect(() => {
+  //   // setisLoginCondition(CurrentUser());
+  // });
+
   setTimeout(() => {
-    if (isLoginCondition) {
-      console.log('working');
+    if (isLogin == true) {
+      navigation.replace('Drawer');
+      // console.log('condition working');
     } else {
       navigation.replace('LoginScreen');
+      // console.log('not working');
     }
-  }, 2000);
+  }, 1000);
+  
   return (
     <>
       <View style={styles.container}>
@@ -30,6 +37,7 @@ const SplashScreen = ({navigation}) => {
       <Signature />
     </>
   );
+
 };
 
 const mapStateToProps = (state) => ({

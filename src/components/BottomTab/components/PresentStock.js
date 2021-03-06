@@ -6,9 +6,11 @@ import {windowWidth, windowHeight} from '../../../Assets/Dimensions';
 import Header from '../../Header';
 import PresentStockCard from '../../PresentStockCard';
 import {StockList} from '../../../redux/List/PresentStockList';
+import {MMKV} from 'react-native-mmkv';
 
 const PresentStock = ({navigation}) => {
   const obj = StockList;
+  console.log('present stock #13 local storage value',MMKV.getBoolean('isLogin'))
   return (
     <>
       <View style={styles.homeContainer}>

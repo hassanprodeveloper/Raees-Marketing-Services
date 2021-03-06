@@ -18,6 +18,7 @@ import {connect} from 'react-redux';
 import {updateUserData, updateUser} from '../redux/action';
 //
 import {db} from '../Config/firestore';
+import {MMKV} from 'react-native-mmkv';
 
 const LoginScreen = ({navigation, setUserData, setUser}) => {
   const [disable, setdisable] = useState(false);
@@ -34,6 +35,7 @@ const LoginScreen = ({navigation, setUserData, setUser}) => {
       setPassword('');
       setid('');
     } else {
+      MMKV.set('isLogin', true)
       navigation.replace('Drawer');
       setdisable(false);
     }

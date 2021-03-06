@@ -28,6 +28,7 @@
     "react-native-fbsdk": "^3.0.0",
     "react-native-gesture-handler": "^1.10.2",
     "react-native-indicator": "^1.2.2",
+    "react-native-mmkv": "^1.0.6",
     "react-native-paper": "^4.7.2",
     "react-native-reanimated": "^1.13.2",
     "react-native-safe-area-context": "^3.1.9",
