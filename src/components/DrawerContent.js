@@ -14,6 +14,7 @@ import {
 import {DrawerContentScrollView, DrawerItem} from '@react-navigation/drawer';
 import Icon from 'react-native-vector-icons/Ionicons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
+import {MMKV} from 'react-native-mmkv';
 import {connect} from 'react-redux';
 import UserCard from '../components/UserCard';
 import Signature from './Signature';
@@ -46,6 +47,11 @@ const DrawerContent = (props) => {
       label: 'Tab',
       // iconType: 'arrow-up',
       onpress: () => props.navigation.navigate('BottomTab'),
+    },
+    {
+      label: 'Sign Out',
+      iconType: 'ios-exit-outline',
+      onpress: () => {MMKV.delete('isLogin'), props.navigation.replace('LoginScreen') },
     },
   ];
 

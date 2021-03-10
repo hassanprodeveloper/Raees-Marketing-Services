@@ -29,7 +29,7 @@ const PresentStock = ({navigation}) => {
                 <PresentStockCard
                   name={obj[item].name}
                   box={obj[item].box}
-                  issue={false}
+                  issue={3}
                   id={obj[item].skuCode}
                 />
               )}

@@ -12,6 +12,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import {windowWidth, windowHeight} from '../Assets/Dimensions';
 
 const PresentStockCard = ({name, box, issue, id}) => {
+  const totalStock = box + issue 
   // const issue = true
   return (
     <>
@@ -36,14 +37,14 @@ const PresentStockCard = ({name, box, issue, id}) => {
         <View style={styles.stockMainCont}>
           <View style={styles.stockCont}>
             <Text style={styles.userNameText}>{box}</Text>
-            <Text style={styles.rateText}>Boxs</Text>
+            <Text style={styles.rateText}>Issue</Text>
           </View>
           {/* <TextInput style={{...styles.textInput, display: issue? 'flex' : 'none'}} maxLength={3} keyboardType='number-pad' /> */}
         </View>
 
         <View style={styles.stockMainCont}>
           <View style={styles.stockCont}>
-            <Text style={styles.userNameText}>{box}</Text>
+            <Text style={styles.userNameText}>{totalStock}</Text>
             <Text style={styles.rateText}>Total</Text>
           </View>
         </View>
