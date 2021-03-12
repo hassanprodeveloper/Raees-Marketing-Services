@@ -1,5 +1,5 @@
-import React from 'react';
-import {StyleSheet,FlatList, Text, View} from 'react-native';
+import React, {useEffect} from 'react';
+import {StyleSheet,FlatList, Button, Text, View} from 'react-native';
 import AnimatedScrollView from './AnimatedScrollView';
 //
 import {windowWidth, windowHeight} from '../../../Assets/Dimensions';
@@ -7,10 +7,28 @@ import Header from '../../Header';
 import PresentStockCard from '../../PresentStockCard';
 import {StockList} from '../../../redux/List/PresentStockList';
 import {MMKV} from 'react-native-mmkv';
-
+// 
+import {getFirestoreSdrData , } from '../../../Config/SkuList'
 const PresentStock = ({navigation}) => {
-  const obj = StockList;
-  console.log('present stock #13 local storage value',MMKV.getBoolean('isLogin'))
+  // useEffect(() => {
+  //   getFirestoreSdrData()
+  // });
+  const jsonObj1 = MMKV.getString('SkuStockList');
+  const obj = JSON.parse(jsonObj1)
+  const clickHandler = async () =>{
+    await getFirestoreSdrData()
+     const jsonObj1 = MMKV.getString('SkuStockList');
+     const obj1 = JSON.parse(jsonObj1)
+    console.log('present stock #13 local storage value ==========>>>>>>>>>>',obj1)
+
+  }
+
+
+  // const obj = StockList;
+  // const jsonObj1 = MMKV.getString('SkuStockList');
+  // const obj1 = JSON.parse(jsonObj1)
+  // console.log('present stock #13 local storage value',MMKV.getBoolean('isLogin'))
+  // console.log('present stock #13 local storage value ==========>>>>>>>>>>',obj1)
   return (
     <>
       <View style={styles.homeContainer}>
@@ -20,7 +38,7 @@ const PresentStock = ({navigation}) => {
           iconType="ios-menu-sharp"
           onPress={() => navigation.openDrawer()}
         />
-
+      <Button onPress={() => clickHandler()} title='click' />
         <View style={styles.bottomContainer}>
           <AnimatedScrollView style={styles.container}>
             <FlatList
@@ -28,9 +46,10 @@ const PresentStock = ({navigation}) => {
               renderItem={({item}) => (
                 <PresentStockCard
                   name={obj[item].name}
-                  box={obj[item].box}
-                  issue={3}
+                  box={obj[item].presentStock}
+                  issue={obj[item].issueStock}
                   id={obj[item].skuCode}
+                  rate={obj[item].rate}
                 />
               )}
             />

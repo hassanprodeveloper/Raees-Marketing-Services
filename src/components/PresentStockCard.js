@@ -11,7 +11,7 @@ import {
 import Icon from 'react-native-vector-icons/Ionicons';
 import {windowWidth, windowHeight} from '../Assets/Dimensions';
 
-const PresentStockCard = ({name, box, issue, id}) => {
+const PresentStockCard = ({name, box, issue,rate, id}) => {
   const totalStock = box + issue 
   // const issue = true
   return (
@@ -22,7 +22,7 @@ const PresentStockCard = ({name, box, issue, id}) => {
         </View> */}
         <View style={styles.userIdCont}>
           <Text style={styles.userNameText}>{name}</Text>
-          <Text style={styles.rateText}>Per Box Rs: 108/-</Text>
+          <Text style={styles.rateText}>Per Box Rs: {rate}/-</Text>
           <Text style={styles.rateText}>{id}</Text>
         </View>
 
